@@ -22,6 +22,7 @@ class Reservation{
     //functions
     void print();
     bool lessThan(Reservation& res);
+    bool overlaps(const string& r, Date& d);
 
     private:
     Student* student;
