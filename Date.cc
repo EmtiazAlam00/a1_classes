@@ -104,6 +104,3 @@ int Date::getMaxDay(){
 		default:			return 31;
 	}
 }
-
--- delete me
-
