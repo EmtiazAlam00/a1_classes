@@ -27,7 +27,7 @@ public:
     void setNumber(string u);
     
     // Less than function
-    bool lessThan(Student& s) ;
+    bool lessThan(Student& s);
     
     // Print function
     void print() ;

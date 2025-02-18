@@ -1,7 +1,7 @@
-
 #ifndef DATE_H
 #define DATE_H
 
+#define MAX_DURATION 3
 #include <iostream>
 #include <string>
 
@@ -12,25 +12,30 @@ class Date {
 	public:
 		//constructor
 		Date();
-		Date(int year, int month, int day);
+		Date(int year, int month, int day, int hour, int duration);
 		
 				
 		//setters
 		void setDay( int);
 		void setMonth(int);
 		void setYear(int);
-		void setDate(int y, int m, int d);
+		void setDate(int y, int m, int d, int h, int u);
 		void setDate(Date&);
+		void setHour(int);
+		void setDuration(int);
 		
 		//getters
 		int getDay();
 		int getMonth();
 		int getYear();
 		const string& getMonthName();
+		int getHour();
+		int getDuration();
 		
 		//other
 		bool lessThan(Date& d);
 		void print();
+		bool overlaps(Date& d);
 	
 	private:
 		//functions
