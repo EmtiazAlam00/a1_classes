@@ -107,7 +107,7 @@ void testReservations(Library& lib){
     lib.makeReservation(students[2],rooms[1],d2);
 
     cout<<"Print reservations (should be 2)"<<endl<<endl;
-    // lib.printReservations();
+    //lib.printReservations();
 
     cout<<"Reserving "<<rooms[1]<<" for "<<students[2]<<" on "<<endl;
     d1.print();
@@ -150,36 +150,31 @@ void testReservations(Library& lib){
 
 }
 
-int main() {
-     // 1. Test Date Overlaps
-     Date d1(2020,1,24,11,3);
-     Date d2(2020,1,23,11,3);
-     testDate(d1, d2, false);  // Different days, should NOT overlap
- 
-     Date d3(2021,5,10,9,3);
-     Date d4(2021,5,10,12,3);
-     testDate(d3, d4, false);  // Same day, 3-hour difference, should NOT overlap
- 
-     Date d5(2021,5,10,9,1);
-     Date d6(2021,5,10,10,3);
-     testDate(d5, d6, false);  // 1-hour difference, non-overlapping durations
- 
-     Date d7(2021,5,10,9,2);
-     Date d8(2021,5,10,10,2);
-     testDate(d7, d8, true);   // 1-hour difference, overlapping durations
- 
-     Date d9(2021,5,10,9,2);
-     Date d10(2021,5,10,9,2);
-     testDate(d9, d10, true);  // Same start time, should overlap
- 
-     // 2. Create Library Object
-     Library lib;
- 
-     // 3. Populate Library with Rooms & Students
-     populate(lib);
- 
-     // 4. Test Reservations
-     testReservations(lib);
- 
-     return 0;
+int main(){
+    // Test case (a): Different days, should not overlap
+    Date d1(2020, 1, 24, 11, 3);  // January 24, 2020, 11:00 AM, Duration 3
+    Date d2(2020, 1, 23, 11, 3);  // January 23, 2020, 11:00 AM, Duration 3
+    testDate(d1, d2, false);  // Should not overlap
+
+    // Test case (b): Same year, month, day, but 3-hour difference, should not overlap
+    Date d3(2020, 1, 24, 10, 3);  // January 24, 2020, 10:00 AM, Duration 3
+    Date d4(2020, 1, 24, 13, 3);  // January 24, 2020, 1:00 PM, Duration 3
+    testDate(d3, d4, false);  // Should not overlap
+
+    // Test case (c): Same day, 1-hour difference, durations 1 and 3, should not overlap
+    Date d5(2020, 1, 24, 10, 1);  // January 24, 2020, 10:00 AM, Duration 1
+    Date d6(2020, 1, 24, 11, 3);  // January 24, 2020, 11:00 AM, Duration 3
+    testDate(d5, d6, false);  // Should not overlap
+
+    // Test case (d): Same day, 1-2 hours apart, durations cause overlap, should overlap
+    Date d7(2020, 1, 24, 10, 2);  // January 24, 2020, 10:00 AM, Duration 2
+    Date d8(2020, 1, 24, 11, 2);  // January 24, 2020, 11:00 AM, Duration 2
+    testDate(d7, d8, true);  // Should overlap
+
+    // Test case (e): Same day, same hour, should overlap
+    Date d9(2020, 1, 24, 11, 3);  // January 24, 2020, 11:00 AM, Duration 3
+    Date d10(2020, 1, 24, 11, 3); // January 24, 2020, 11:00 AM, Duration 3
+    testDate(d9, d10, true);  // Should overlap
+
+    return 0;
 }

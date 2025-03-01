@@ -16,7 +16,7 @@ class Library{
     ~Library();
 
     bool addStudent(const string& name, const string& number);
-    bool addRoom(string name, int capacity, int computers, bool whiteboard);
+    bool addRoom(string name, int capacity=1, int computers=0, bool whiteboard = false);
     bool getStudent(const string& name, Student** student);
     bool getRoom(const string& roomName, Room** room);
     bool isFree(const string& room, Date&);

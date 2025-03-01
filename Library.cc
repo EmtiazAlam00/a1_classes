@@ -49,22 +49,29 @@ bool Library:: addStudent(const string& name, const string& number){
     return true;// student added successfully
 }
 
-bool Library:: addRoom(string name, int capacity=1, int computers=0, bool whiteboard = false){
-    if(quantityRoom >= MAX_ARRAY){
-        return false;
+bool Library::addRoom(string name, int capacity = 1, int computers = 0, bool whiteboard = false) {
+    // Check if the room array is full
+    if (quantityRoom >= MAX_ARRAY) {
+        return false; // No more space to add a room
     }
-    Room * newRoom = new Room(name, capacity, computers, whiteboard);
-    int i = quantityRoom - 1;  // Start from the last element
+
+    // Create a new Room object
+    Room* newRoom = new Room(name, capacity, computers, whiteboard);
+
+    // Find the correct position to insert the new room (sorted order)
+    int i = quantityRoom - 1; // Start from the last element
     while (i >= 0 && room[i]->lessThan(*newRoom)) {
-        // Shift elements to the right to make space for the new room
-        room[i + 1] = room[i];
+        room[i + 1] = room[i]; // Shift elements to the right
         --i;
     }
+
     // Insert the new room at the correct position
     room[i + 1] = newRoom;
+
     // Increment the room count
     ++quantityRoom;
-    return true;
+
+    return true; // Room added successfully
 }
 
 bool Library :: getStudent(const string& name, Student** student){

@@ -12,7 +12,9 @@ class Date {
 	public:
 		//constructor
 		Date();
-		Date(int year, int month, int day, int hour, int duration);
+		Date(int y, int m, int d, int h = 12, int u = 2); // Default values for h and u
+		static void testDate(Date& d1, Date& d2, bool shouldOverlap);
+
 		
 				
 		//setters
