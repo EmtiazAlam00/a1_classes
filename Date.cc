@@ -142,6 +142,12 @@ void Date::testDate(Date& d1, Date& d2, bool shouldOverlap) {
     }
 }
 
+const string Date::months[12] = {"January", "February", "March", "April", "May", "June",
+	"July", "August", "September", "October", "November", "December"};
+
+const string Date::smonths[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+	 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+
 int main() {
     // Test case (a): Different days, should not overlap
     Date d1(2020, 1, 24, 11, 3);  // January 24, 2020, 11:00 AM, Duration 3
