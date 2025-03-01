@@ -51,7 +51,8 @@ class Date {
 		int hour;
 		int duration;
 		
-		static const string months[12];
-		static const string smonths[12];
+		const string months[12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+		const string smonths[12]={"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"};
+	
 };
 #endif

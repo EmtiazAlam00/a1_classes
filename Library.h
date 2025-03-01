@@ -1,4 +1,5 @@
 #include "Student.h"
+#include "Reservation.h"
 #include "Room.h"
 #include "Date.h"
 #define MAX_ARRAY 100
