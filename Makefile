@@ -1,23 +1,69 @@
-a1: a1-global.o Student.o Room.o Date.o Reservation.o Library.o
-	g++ -o a1 a1-global.o Student.o Room.o Date.o Reservation.o Library.o
+########################################################################
+####################### Makefile Template ##############################
+########################################################################
 
-a1-global.o: a1-global.cc Student.h Room.h Date.h Reservation.h Library.h
-	g++ -c a1-global.cc
+# Compiler settings - Can be customized.
+CC = g++
+CXXFLAGS = -std=c++11 -Wall
+LDFLAGS = 
 
-Student.o: Student.cc Student.h
-	g++ -c Student.cc
-	
-Room.o: Room.cc Room.h
-	g++ -c Room.cc
+# Makefile settings - Can be customized.
+APPNAME = myapp
+EXT = .cc
+SRCDIR = C:\Users\emtia\Downloads\a1_classes
+OBJDIR = obj
 
-Date.o: Date.cc Date.h
-	g++ -c Date.cc
+############## Do not change anything from here downwards! #############
+SRC = $(filter-out $(SRCDIR)/reservation.cc $(SRCDIR)/library.cc, $(wildcard $(SRCDIR)/*$(EXT)))
+OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
+DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
+# UNIX-based OS variables & settings
+RM = rm
+DELOBJ = $(OBJ)
+# Windows OS variables & settings
+DEL = del
+EXE = .exe
+WDELOBJ = $(filter-out $(OBJDIR)/reservation.o $(OBJDIR)/library.o, $(OBJ))
 
-Reservation.o: Reservation.cc Reservation.h
-	g++ -c Reservation.cc
+########################################################################
+####################### Targets beginning here #########################
+########################################################################
 
-Library.o: Library.cc Library.h
-	g++ -c Library.cc
+all: $(APPNAME)
 
+# Builds the app
+$(APPNAME): $(OBJ)
+	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+
+# Creates the dependecy rules
+%.d: $(SRCDIR)/%$(EXT)
+	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
+
+# Includes all .h files
+-include $(DEP)
+
+# Building rule for .o files and its .c/.cpp in combination with all .h
+$(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
+	$(CC) $(CXXFLAGS) -o $@ -c $<
+
+################### Cleaning rules for Unix-based OS ###################
+# Cleans complete project
+.PHONY: clean
 clean:
-	rm -f *.o a1
+	$(RM) $(DELOBJ) $(DEP) $(APPNAME)
+
+# Cleans only all files with the extension .d
+.PHONY: cleandep
+cleandep:
+	$(RM) $(DEP)
+
+#################### Cleaning rules for Windows OS #####################
+# Cleans complete project
+.PHONY: cleanw
+cleanw:
+	$(DEL) $(WDELOBJ) $(DEP) $(APPNAME)$(EXE)
+
+# Cleans only all files with the extension .d
+.PHONY: cleandepw
+cleandepw:
+	$(DEL) $(DEP)
