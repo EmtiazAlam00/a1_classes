@@ -49,7 +49,7 @@ bool Library:: addStudent(const string& name, const string& number){
     return true;// student added successfully
 }
 
-bool Library::addRoom(string name, int capacity = 1, int computers = 0, bool whiteboard = false) {
+bool Library::addRoom(string name, int capacity, int computers, bool whiteboard) {
     // Check if the room array is full
     if (quantityRoom >= MAX_ARRAY) {
         return false; // No more space to add a room
@@ -118,13 +118,13 @@ bool Library :: makeReservation(const string& student, const string& room, Date&
     Room* r = nullptr;
     if(!getRoom(room, &r)){ return false;}
     //check if the room is free at the given date
-    if(!isFree(room, date)){
+    if(!isFree(r->getName(), date)){
         return false;
     }
     if(quantityRes >= MAX_ARRAY){
         return false;
     }
-    reservations[quantityRes] = new Reservation(student, room, date);
+    reservations[quantityRes] = new Reservation(s, r, date);
     quantityRes++;
     return true;
 }

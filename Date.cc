@@ -107,65 +107,65 @@ int Date::getMaxDay(){
 	}
 }
 
-void testDate(Date& d1, Date& d2, bool shouldOverlap){
+// void testDate(Date& d1, Date& d2, bool shouldOverlap){
 
-    bool doesOverlap = false;
-    cout<<endl<<"d1: ";
-    d1.print();
-    cout<<endl<<"d2: ";
-	d2.print();
-    cout<<endl;
-    if (d1.overlaps(d2)){	
-		cout<<"d1 overlaps d2"<<endl;
-        doesOverlap = true;
-	}else{
-		cout<<"d1 does not overlap d2"<<endl;
-        doesOverlap = false;
-	}
+//     bool doesOverlap = false;
+//     cout<<endl<<"d1: ";
+//     d1.print();
+//     cout<<endl<<"d2: ";
+// 	d2.print();
+//     cout<<endl;
+//     if (d1.overlaps(d2)){	
+// 		cout<<"d1 overlaps d2"<<endl;
+//         doesOverlap = true;
+// 	}else{
+// 		cout<<"d1 does not overlap d2"<<endl;
+//         doesOverlap = false;
+// 	}
 
-    if (doesOverlap==shouldOverlap){
-        cout<<"Success!"<<endl;
-    }else{
-        cout<<red<<"*****Failure!*****"<<def<<endl;
-    }
+//     if (doesOverlap==shouldOverlap){
+//         cout<<"Success!"<<endl;
+//     }else{
+//         cout<<red<<"*****Failure!*****"<<def<<endl;
+//     }
 
-    if (d2.overlaps(d1)){	
-		cout<<"d2 overlaps d1"<<endl;
-        doesOverlap = true;
-	}else{
-		cout<<"d2 does not overlap d1"<<endl;
-        doesOverlap = false;
-	}
+//     if (d2.overlaps(d1)){	
+// 		cout<<"d2 overlaps d1"<<endl;
+//         doesOverlap = true;
+// 	}else{
+// 		cout<<"d2 does not overlap d1"<<endl;
+//         doesOverlap = false;
+// 	}
 
-    if (doesOverlap==shouldOverlap){
-        cout<<"Success!"<<endl;
-    }else{
-        cout<<red<<"*****Failure!*****"<<def<<endl;
-    }
-}
+//     if (doesOverlap==shouldOverlap){
+//         cout<<"Success!"<<endl;
+//     }else{
+//         cout<<red<<"*****Failure!*****"<<def<<endl;
+//     }
+// }
 
 
-int main() {
-	// 1. Test Date Overlaps
-	Date d1(2020,1,24,11,3);
-	Date d2(2020,1,23,11,3);
-	testDate(d1, d2, false);  // Different days, should NOT overlap
+// int main() {
+// 	// 1. Test Date Overlaps
+// 	Date d1(2020,1,24,11,3);
+// 	Date d2(2020,1,23,11,3);
+// 	testDate(d1, d2, false);  // Different days, should NOT overlap
 
-	Date d3(2021,5,10,9,3);
-	Date d4(2021,5,10,12,3);
-	testDate(d3, d4, false);  // Same day, 3-hour difference, should NOT overlap
+// 	Date d3(2021,5,10,9,3);
+// 	Date d4(2021,5,10,12,3);
+// 	testDate(d3, d4, false);  // Same day, 3-hour difference, should NOT overlap
 
-	Date d5(2021,5,10,9,1);
-	Date d6(2021,5,10,10,3);
-	testDate(d5, d6, false);  // 1-hour difference, non-overlapping durations
+// 	Date d5(2021,5,10,9,1);
+// 	Date d6(2021,5,10,10,3);
+// 	testDate(d5, d6, false);  // 1-hour difference, non-overlapping durations
 
-	Date d7(2021,5,10,9,2);
-	Date d8(2021,5,10,10,2);
-	testDate(d7, d8, true);   // 1-hour difference, overlapping durations
+// 	Date d7(2021,5,10,9,2);
+// 	Date d8(2021,5,10,10,2);
+// 	testDate(d7, d8, true);   // 1-hour difference, overlapping durations
 
-	Date d9(2021,5,10,9,2);
-	Date d10(2021,5,10,9,2);
-	testDate(d9, d10, true);  // Same start time, should overlap
+// 	Date d9(2021,5,10,9,2);
+// 	Date d10(2021,5,10,9,2);
+// 	testDate(d9, d10, true);  // Same start time, should overlap
 
-	return 0;
-}
+// 	return 0;
+// }

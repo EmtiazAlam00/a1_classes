@@ -8,13 +8,13 @@ CXXFLAGS = -std=c++11 -Wall
 LDFLAGS = 
 
 # Makefile settings - Can be customized.
-APPNAME = myapp
+APPNAME = BookRoom
 EXT = .cc
 SRCDIR = C:\Users\emtia\Downloads\a1_classes
 OBJDIR = obj
 
 ############## Do not change anything from here downwards! #############
-SRC = $(filter-out $(SRCDIR)/reservation.cc $(SRCDIR)/library.cc, $(wildcard $(SRCDIR)/*$(EXT)))
+SRC = $(wildcard $(SRCDIR)/*$(EXT))
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
 # UNIX-based OS variables & settings
@@ -23,7 +23,7 @@ DELOBJ = $(OBJ)
 # Windows OS variables & settings
 DEL = del
 EXE = .exe
-WDELOBJ = $(filter-out $(OBJDIR)/reservation.o $(OBJDIR)/library.o, $(OBJ))
+WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
 
 ########################################################################
 ####################### Targets beginning here #########################

@@ -48,15 +48,15 @@ void Student::print(){
 }
 
 //Main function to test the Student class
-int main() {
-    Student s1("Alice", "123");
-    Student s2("Bob", "456");
-    Student s3;
+// int main() {
+//     Student s1("Alice", "123");
+//     Student s2("Bob", "456");
+//     Student s3;
 
-    cout << "Student 1: "; s1.print();
-    cout << "Student 2: "; s2.print();
-    cout << "Default Student: "; s3.print();
+//     cout << "Student 1: "; s1.print();
+//     cout << "Student 2: "; s2.print();
+//     cout << "Default Student: "; s3.print();
 
-    cout << "Comparing Student 1 and Student 2: " << (s1.lessThan(s2) ? "Student 1 comes first" : "Student 2 comes first") << endl;
-    return 0;
-}
+//     cout << "Comparing Student 1 and Student 2: " << (s1.lessThan(s2) ? "Student 1 comes first" : "Student 2 comes first") << endl;
+//     return 0;
+// }
