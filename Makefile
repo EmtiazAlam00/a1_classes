@@ -10,7 +10,7 @@ LDFLAGS =
 # Makefile settings - Can be customized.
 APPNAME = BookRoom
 EXT = .cc
-SRCDIR = C:\Users\emtia\Downloads\RoomBooking
+SRCDIR = C:\Users\emtia\Downloads\a1_classes
 OBJDIR = obj
 
 ############## Do not change anything from here downwards! #############
