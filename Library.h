@@ -1,3 +1,6 @@
+#ifndef LIBRARY_H
+#define LIBRARY_H
+
 #include "Student.h"
 #include "Reservation.h"
 #include "Room.h"
@@ -32,3 +35,4 @@ class Library{
     int quantityStu;
     int quantityRes;
 };
+#endif
